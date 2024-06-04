@@ -3,7 +3,7 @@
 
 Erstellung einer Tansport Management Software (TMS) Prototypen, zum planen von Touren.
 
-Zu implimentierende Funktionen:
+### Anforderungen:
 
 - Bei verwendung sollen Startpunkt und Zielpunkt eingebbar sein.
 
@@ -18,7 +18,7 @@ Zu implimentierende Funktionen:
 
 Creation of Transport Management Software (TMS) Prototype, that is able to plan tours.
 
-Abilities to implement:
+### Requests:
 
 - Application should have Input for Starting-Point and Destination
 
