@@ -11,8 +11,9 @@ Erstellung einer Tansport Management Software (TMS) Prototypen, zum planen von T
 
 - Nach Bestätigung soll ideale Route berechnet und dargestellt werden.
 
-- Auftraggeber schlägt Savings-Algorythus vor.
+- Auftraggeber schlägt Savings-Algorythmus vor.
 
+- Code ist zu Beschreiben
 
 ## Descrition
 
@@ -27,3 +28,5 @@ Creation of Transport Management Software (TMS) Prototype, that is able to plan 
 - upon confirmation, Route should be calculated and visualized
 
 - Savings-Algorythm is recommended
+
+- Code should be described
