@@ -1,7 +1,7 @@
 # Informatik2Projekt
 ## Beschreibung:
 
-Erstellung einer Tansport Management Software (TMS) Prototypen, zum planen von Touren.
+Erstellung eines Tansport Management Software (TMS) Prototypen, zum planen von Touren.
 
 ### Anforderungen:
 
@@ -16,17 +16,17 @@ Erstellung einer Tansport Management Software (TMS) Prototypen, zum planen von T
 
        1.2.1 Die Software soll CSV-Datei aus dem Directory ziehen und auflisten.
 
-   1.3 Die Software soll Auswahl-Prompt geben
+   1.3 Die Software soll eine Auswahl-Prompt geben
 
        1.3.1 Die Auswahl soll über individuelle Eingabe, Koordinateneinzeichnung in Karte und Tourenplanung verfügen.
 
-   1.4 Die Software soll nach Auswahl ein Return-Statement geben
+   1.4 Die Software soll nach der Auswahl  des Benutzers ein Return-Statement geben.
 
-       1.4.1 Das Return-Statement soll angemessene Beschreibung enthalten
+       1.4.1 Das Return-Statement soll angemessene Beschreibung enthalten.
 
    1.5 Die Software soll eine HTML Datei im Directory erstellen.
 
-       1.5.1 Die HTML Datei sollte Eine Karte nach Auswahl des Users zeigen.
+       1.5.1 Die HTML Datei sollte eine Karte nach Auswahl des Benutzers zeigen.
 
    1.6 Die Software soll zum berechnen einer Tourenplanung den Savings Algorythmus verwenden.
 
@@ -35,7 +35,7 @@ Erstellung einer Tansport Management Software (TMS) Prototypen, zum planen von T
 
 ## Description
 
-Creation of Transport Management Software (TMS) Prototype, that is able to plan tours.
+Creation of a Transport Management Software (TMS) Prototype, that is able to plan tours.
 
 ### Requests:
 
@@ -47,11 +47,11 @@ Creation of Transport Management Software (TMS) Prototype, that is able to plan 
 
        1.2.1 The software should pull the CSV-File from the directory and list the given Values.
 
-    1.3 The software should give a choice-prompt.
+    1.3 The software should give a user choice-prompt.
 
-       1.3.1 The choice-prompt should include individual user input, viualization of CSV-File coordinates in a Map, calculation of ideal Route with visualization in a Map.
+       1.3.1 The user choice-prompt should include individual input by user, viualization of CSV-File coordinates in a Map, calculation of ideal route with visualization in a Map.
 
-   1.4 The software should give a return statement based upon uuser-selection.
+   1.4 The software should give a return statement based upon user-selection.
 
        1.4.1 the return-statement should include a statement of what it did.
 
