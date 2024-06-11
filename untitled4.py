@@ -62,7 +62,39 @@ def getCoordinates(coordinates):
     plt.show()
 
 
+def readLegend():
+    try:
+        lieferorteDok = pd.read_csv('lieferorte.csv', sep=',')
+        return lieferorteDok
+    except FileNotFoundError:
+        print("The file 'lieferorte.csv' was not found.")
+        return pd.DataFrame()
 
+
+lieferorteDok = readLegend()
+if not lieferorteDok.empty:
+    coordinates = list(zip(lieferorteDok['Longitude'], lieferorteDok['Latitude']))
+
+    
+    getCoordinates(coordinates)
+
+    # folium map centered around the mean of the coordinates
+    map_center = [lieferorteDok['Latitude'].mean(), lieferorteDok['Longitude'].mean()]
+    map = folium.Map(location=map_center, zoom_start=10, control_scale=True)
+
+    
+    for coord in coordinates:
+        folium.Marker(location=[coord[1], coord[0]]).add_to(map)
+
+    # Save the map to an HTML file
+    map.save('mapp.html')
+
+    print("Map has been created and saved as 'mapp.html'.")
+else:
+    print("No coordinates to display.")
+
+
+    
 
 def user_choice_prompt():
     print("User Choice Prompt:")
