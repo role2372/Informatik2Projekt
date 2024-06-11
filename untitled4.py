@@ -10,7 +10,6 @@ import folium
 
 
 
-
 def read_coordinates_from_csv(file):
     
     df = pd.read_csv(file, sep=',', header=0)
@@ -60,8 +59,8 @@ def getCoordinates(coordinates):
     plt.ylabel('Latitude')
     plt.title('Visualization of Coordinates')
     plt.show()
-
-
+    
+    
 def readLegend():
     try:
         lieferorteDok = pd.read_csv('lieferorte.csv', sep=',')
@@ -71,30 +70,31 @@ def readLegend():
         return pd.DataFrame()
 
 
-lieferorteDok = readLegend()
-if not lieferorteDok.empty:
-    coordinates = list(zip(lieferorteDok['Longitude'], lieferorteDok['Latitude']))
-
+def createMap():
+    lieferorteDok = readLegend()
+    if not lieferorteDok.empty:
+        coordinates = list(zip(lieferorteDok['Longitude'], lieferorteDok['Latitude']))
     
-    getCoordinates(coordinates)
-
-    # folium map centered around the mean of the coordinates
-    map_center = [lieferorteDok['Latitude'].mean(), lieferorteDok['Longitude'].mean()]
-    map = folium.Map(location=map_center, zoom_start=10, control_scale=True)
-
+        
+        getCoordinates(coordinates)
     
-    for coord in coordinates:
-        folium.Marker(location=[coord[1], coord[0]]).add_to(map)
-
-    # Save the map to an HTML file
-    map.save('mapp.html')
-
-    print("Map has been created and saved as 'mapp.html'.")
-else:
-    print("No coordinates to display.")
-
-
+        # folium map centered around the mean of the coordinates
+        map_center = [lieferorteDok['Latitude'].mean(), lieferorteDok['Longitude'].mean()]
+        map = folium.Map()
     
+        
+        for coord in coordinates:
+            folium.Marker(location=[coord[0], coord[1]]).add_to(map)
+    
+        # Save the map to an HTML file
+        map.save('mapp.html')
+    
+        print("Map has been created and saved as 'mapp.html'.")
+    else:
+        print("No coordinates to display.")
+        
+    
+
 
 def user_choice_prompt():
     print("User Choice Prompt:")
@@ -105,7 +105,7 @@ def user_choice_prompt():
     return choice
 
 
-def main():
+while True:
     choice = user_choice_prompt()
     
     if choice == '1':
@@ -120,7 +120,7 @@ def main():
        # Display the DataFrame
         print(df.to_string(index=False))
         getCoordinates(coordinates)
-        return "Read coordinates from CSV file"
+        #return "Read coordinates from CSV file"
     
     
         
@@ -128,14 +128,15 @@ def main():
         coordinates = input_coordinates()
         print("Enter coordinates:", coordinates)
         getCoordinates(coordinates)
-        return "Insert your coordinates"
+        #return "Insert your coordinates"
+        
+    elif choice == '3':
+        createMap()
     
     else:
         print("Invalid choice.")
-        return "Invalid choice"
+        #return "Invalid choice"
     
-if __name__ == "__main__":
-    action_taken = main()
-    print("Return statement based upon user-selection:")
+
     
     
