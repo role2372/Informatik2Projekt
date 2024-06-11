@@ -6,6 +6,8 @@ Created on Thu Jun  6 09:25:40 2024
 """
 import matplotlib.pyplot as plt
 import pandas as pd
+import folium
+
 
 
 
@@ -58,8 +60,9 @@ def getCoordinates(coordinates):
     plt.ylabel('Latitude')
     plt.title('Visualization of Coordinates')
     plt.show()
-    
-    
+
+
+
 
 def user_choice_prompt():
     print("User Choice Prompt:")
