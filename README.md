@@ -45,7 +45,7 @@ Erstellung eines Tansport Management Software (TMS) Prototypen, zum planen von T
        1.5.1 Die HTML Datei sollte eine Karte nach Auswahl des Benutzers zeigen.
        1.5.1.1. Entwicklung einer Funktion zur Erstellung einer Foliumkarte mit Markierungen für jede Koordinate.
        1.5.1.2. Die Karte soll auf der Grundlage des Mittelwerts der Longitude und Latitude zentriert werden.
-       1.5.1.3. Die Markierungen sollen für jede Koordinate hinzugefügt werden und die Karte wird als HTML-Datei mit dem Namen "mapp.html" gespeichert.
+       1.5.1.3. Die Markierungen sollen für jede Koordinate hinzugefügt werden und die Karte wird als HTML-Datei mit dem Namen "mapp.html" gespeichert.  
 
 
    1.6 Die Software soll zum berechnen einer Tourenplanung den Savings Algorythmus verwenden.
