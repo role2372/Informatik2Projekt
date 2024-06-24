@@ -2,7 +2,7 @@
 """
 Created on Mon Jun 6 13:47:46 2024
 
-Author: Ilyin Ariana, Rouven Lenk
+Author: Ilyin, Rouven Lenk
 """
 
 import matplotlib.pyplot as plt
