@@ -24,7 +24,8 @@ Erstellung eines Tansport Management Software (TMS) Prototypen, zum planen von T
        1.2.5. Eine Funktion erstellen, die es dem Benutzer ermöglicht, Longitude und Latitude manuell einzugeben.
             1.2.5.1. Die Eingaben werden bestätigt, um sicherzustellen, dass sie numerisch sind und innerhalb der gültigen Bereiche liegen (Longitude: -180 bis 180 und
             Latitude: -90 bis 90)
-       1.2.6. Kontinuierliche Aufforderung an den Benutzer, bis er "Stop" eingibt.
+       1.2.6. Kontinuierliche Aufforderung an den Benutzer, bis er "ok" eingibt. 
+       1.2.7. Der Benutzer kan die eingegebene Koordinate bearbeiten und löschen, wenn er Fehler gemacht hat.
 
 
    1.3 Die Software soll eine Auswahl-Prompt geben
