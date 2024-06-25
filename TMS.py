@@ -111,9 +111,10 @@ def input_coordinates():
             
     return coordinates
 
+
 def create_map(csv_coordinates=None, manual_coordinates=None):
    
-    if csv_coordinates is None:
+    if csv_coordinates:
         csv_coordinates = read_coordinates_from_csv('lieferorte.csv')
         if not csv_coordinates:
             print("Keine Koordinaten zum Zeigen vorhanden.")
@@ -121,17 +122,14 @@ def create_map(csv_coordinates=None, manual_coordinates=None):
     
     
     if manual_coordinates:
-        all_coordinates = csv_coordinates + manual_coordinates
-    else:
-        all_coordinates = csv_coordinates
     
-    plot_coordinates(all_coordinates)
+        plot_coordinates(coordinates)
     
-    visualize_map(all_coordinates, file_name="map_with_manual.html")
-    print("Karte wurde erstellt und als 'map_with_manual.html' gespeichert.")
+    visualize_map(coordinates, file_name="route_map_manual.html")
+    print("Karte wurde erstellt und als 'route_map_manual.html' gespeichert.")
     
-    map_center = [sum(coord[0] for coord in all_coordinates) / len(all_coordinates),
-                  sum(coord[1] for coord in all_coordinates) / len(all_coordinates)]
+    map_center = [sum(coord[0] for coord in coordinates) / len(coordinates),
+                  sum(coord[1] for coord in coordinates) / len(coordinates)]
     
     
                   
@@ -139,7 +137,7 @@ def create_map(csv_coordinates=None, manual_coordinates=None):
     m = folium.Map(location=map_center, zoom_start=8)
     
     
-    for coord in all_coordinates:
+    for coord in coordinates:
         folium.Marker(location=[coord[0], coord[1]]).add_to(m)  
 
  
@@ -245,20 +243,38 @@ while True:
         else:
             print("Die CSV-Datei enthaelt keine Koordinaten.")
     
+    
     elif choice == '4':
         file = 'lieferorte.csv'
-        coordinates = read_coordinates_from_csv(file)
-        print(coordinates)
-        if coordinates:
-            route = nearest_neighbor_algorithm(coordinates)
-            visualize_map(coordinates, route, file_name="route_map.html")
-            print("Ideale Route berechnet und auf Karte eingezeichnet")
-            print("ideale Route:", route)
+        csv_coordinates = read_coordinates_from_csv(file)
+        if csv_coordinates:
+            print("CSV Datei gelesen. Möchten Sie die Route für diese Koordinaten berechnen? (ja/nein)")
+            user_input = input().strip().lower()
+            
+            if user_input == 'ja':
+                route = nearest_neighbor_algorithm(csv_coordinates)
+                visualize_map(csv_coordinates, route, file_name="route_map.html")
+                print("Ideale Route basierend auf CSV-Koordinaten berechnet und auf Karte eingezeichnet.")
+                print("Ideale Route:", route)
+            else:
+                print("Vorgang abgebrochen.")
+        
+        print("Möchten Sie stattdessen manuelle Koordinaten eingeben? (ja/nein)")
+        user_input = input().strip().lower()
+        
+        if user_input == 'ja':
+            manual_coordinates = input_coordinates()
+            if manual_coordinates:
+                route = nearest_neighbor_algorithm(manual_coordinates)
+                visualize_map(manual_coordinates, route, file_name="route_map_manual.html")
+                print("Ideale Route basierend auf manuellen Koordinaten berechnet und auf Karte eingezeichnet.")
+                print("Ideale Route:", route)
+            else:
+                print("Keine manuellen Koordinaten eingegeben. Vorgang abgebrochen.")
         else:
-            print("Die CSV Datei enthaelt keine Koordinaten.")
-   
-    elif choice == '5' or choice.lower()=='stop':
-        break
+            print("Vorgang abgebrochen.")
+    
+            break
     
     #elif choice == 'stop':
      #   break
