@@ -34,7 +34,7 @@ def input_coordinates():
         print("3. Vorhandene Koordinaten loeschen")
         print("4. Eingabe beenden")
         
-        option = input("Waehlen Sie eine Option (1-5): ")
+        option = input("Waehlen Sie eine Option (1-4): ")
         
         if option == '1':
             while True:
